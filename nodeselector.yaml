@@ -1,0 +1,45 @@
+apiVersion: v1  
+kind: Pod
+metadata:
+  name: nginx-secret
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+  nodeSelector: 
+    disctype: ssd
+
+---
+apiVersion: v1  
+kind: Pod
+metadata:
+  name: nginx-secret
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+
+
+
+pipeline{
+    agent { label 'jdk-mvn'}
+    triggers { upstream(upstreamProjects: 'job1', threshold: hudson.model.Result.SUCCESS) }
+    stages {
+        stage(scm) {
+            steps {
+                git 'https://github.com/GitPracticeRepo/java11-examples.git'
+            }
+        }
+        stage(build) {
+            steps {
+                
+            
+            }
+        
+      }
+
+
+
+    }
+
+}

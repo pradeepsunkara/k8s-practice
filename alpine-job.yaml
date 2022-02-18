@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata: 
+  name: alpine-job
+spec: 
+  template:
+    metadata: 
+      labels: 
+        app: alpine
+        version: latest
+    spec: 
+      containers: 
+        - name: alpine
+          image: alpine:latest
+          args: 
+            - sleep 3m
+            - /bin/sh
+      restartPolicy: OnFailure

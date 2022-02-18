@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: demo-configmap
+data: 
+  physical.properties:  |
+    height=5.10
+    weight=90
+    colour=white
+    hair.colour=black
+  mental.characteristics:  |
+    iq=1
+    eq=2
+  education: b.tech
+  age: "25"

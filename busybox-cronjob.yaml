@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata: 
+  name: busybox.cronjob
+spec: 
+  schedule: 59 17 23 1 *
+  jobTemplate: 
+    metadata: 
+      labels: 
+        app: busybox 
+    spec: 
+      template: 
+        metadata: 
+          app: busybox
+        spec: 
+          containers: 
+            - name: busybox
+              image: busybox:latest
+              args: 
+                - date
+          
